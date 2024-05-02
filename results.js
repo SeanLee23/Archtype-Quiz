@@ -11,6 +11,15 @@ document.addEventListener("DOMContentLoaded", function() {
         "Assassin": [2, 2, 2, 3, 3, 0, 2, 2, 2, 5, 2, 2, 2, 2, 1, 4, 1, 4]
     };
 
+    const archetypeImages = {
+        "Wizard": "img/wizard.jpg",
+        "Knight": "img/knight.jpg",
+        "Goblin": "img/goblin.jpg",
+        "King": "img/king.jpg",
+        "Queen": "img/queen.jpg",
+        "Assassin": "img/assassin.jpg"
+    };
+
     let archetypeCounts = {};
 
     for (const archetype in archetypeOptions) {
@@ -26,49 +35,24 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     let maxCount = 0;
-    let characterArchetypes = [];
-    Object.entries(archetypeCounts).forEach(([archetype, count]) => {
+    let dominantArchetype = null;
+    for (const [archetype, count] of Object.entries(archetypeCounts)) {
         if (count > maxCount) {
             maxCount = count;
-            characterArchetypes = [archetype];
-        } else if (count === maxCount) {
-            characterArchetypes.push(archetype);
+            dominantArchetype = archetype;
         }
-    });
+    }
 
     const resultElement = document.getElementById('result');
-    let result = "Your character archetype is: ";
-    if (characterArchetypes.length === 1) {
-        result += characterArchetypes[0];
+    let resultText = "Your character archetype is: " + dominantArchetype;
+    resultElement.textContent = resultText;
+
+    const resultImageElement = document.getElementById('result-image');
+
+    if (dominantArchetype && archetypeImages.hasOwnProperty(dominantArchetype)) {
+        resultImageElement.src = archetypeImages[dominantArchetype];
+        resultImageElement.style.display = "block"; // Display the image container
     } else {
-        result += "a combination of ";
-        result += characterArchetypes.join(" and ");
-    }
-    resultElement.textContent = result;
-
-    let slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-        let slides = document.getElementsByClassName("slide");
-        let texts = document.getElementsByClassName("text");
-
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slideIndex++;
-
-        if (slideIndex > slides.length) {
-            slideIndex = 1;
-        }
-
-        slides[slideIndex - 1].style.display = "block";
-
-        setTimeout(showSlides, 15000);
-
-        for (let i = 0; i < texts.length; i++) {
-            texts[i].style.display = "none";
-        }
-        texts[slideIndex - 1].style.display = "block";
+        resultElement.textContent = "Result image not found!";
     }
 });

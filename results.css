@@ -98,6 +98,13 @@ body {
 #result {
     margin-top: 50px;
     font-size: 24px;
+    text-align: center;
+}
+
+#result-image {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
 }
 
 #retry-button {
@@ -114,4 +121,11 @@ body {
 a img {
     width: 100px;
     height: auto; 
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
 }
