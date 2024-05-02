@@ -130,12 +130,12 @@ document.addEventListener("DOMContentLoaded", function() {
     
         let maxCount = 0;
         let dominantArchetype = null;
-        Object.entries(archetypeCounts).forEach(([archetype, count]) => {
+        for (const [archetype, count] of Object.entries(archetypeCounts)) {
             if (count > maxCount) {
                 maxCount = count;
                 dominantArchetype = archetype;
             }
-        });
+        }
     
         const resultElement = document.getElementById('result');
         resultElement.textContent = "Your character archetype is: " + dominantArchetype;
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
         localStorage.setItem('answers', JSON.stringify(answers));
         localStorage.setItem('questions', JSON.stringify(questions));
-    }
+    }    
     
     function submitHandler() {
         const selectedOption = document.querySelector('input[name="option"]:checked');
