@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Archetype Test</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Types</a>
+            <div class="dropdown-content">
+                <a href="#wizard">Wizard</a>
+                <a href="#king">King</a>
+                <a href="#queen">Queen</a>
+                <a href="#knight">Knight</a>
+                <a href="#goblin">Goblin</a>
+                <a href="#assassin">Assassin</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+<body>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="img/day castle.jpg" style="width:100%">
+        </div>
+        
+        <div class="mySlides fade">
+            <img src="img/afternoon castle.jpg" style="width:100%">
+        </div>
+        
+        <div class="mySlides fade">
+            <img src="img/night castle.jpg" style="width:100%">
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Character Archetype Test</h1>
+        <div id="question"></div>
+        <div id="options"></div>
+        <button id="submitBtn">Submit</button>
+        <div id="result"></div>
+    </div>
+
+    <script src="quiz.js"></script>
+    <script src="slideshow.js"></script>
+</body>
+</html>
